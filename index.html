@@ -1,0 +1,85 @@
+<title>Scarlet Briefing Desk</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="src/styles.css">
+
+<main class="desk">
+  <section class="portrait" aria-label="Scarlet">
+    <svg id="avatar" role="img" aria-label="Illustrated portrait of Scarlet, a woman with dirty blonde hair and blue-grey eyes in red and gold armor"></svg>
+    <div class="plate"><b>SCARLET</b><span>Briefing desk · reads aloud</span></div>
+  </section>
+
+  <section class="console">
+    <div class="eyebrow"><i class="dot" id="dot"></i><span id="status">Scarlet · Ready</span></div>
+    <h1 id="greet">Good evening, Tyler.</h1>
+    <p class="tag">My desk. My voice. <em id="tagline">Press play and I will read your briefing.</em></p>
+
+    <div class="says">
+      <div class="says-head">
+        <div class="eyebrow">Scarlet says</div>
+        <div class="btns">
+          <button class="pill" id="play" type="button">Hear her update</button>
+          <button class="pill ghost" id="skip" type="button">Skip</button>
+          <button class="pill ghost" id="stop" type="button">Stop</button>
+        </div>
+      </div>
+      <p class="script" id="script"></p>
+      <div class="viseme">Mouth shape · <b id="vis">REST</b></div>
+    </div>
+
+    <div class="stats" aria-label="Briefing numbers">
+      <div class="stat hot"><b id="s-words">0</b><span>Words</span></div>
+      <div class="stat"><b id="s-min">0</b><span>Minutes</span></div>
+      <div class="stat"><b id="s-queue">0</b><span>Waiting</span></div>
+      <div class="stat"><b id="s-today">0</b><span>Read today</span></div>
+    </div>
+
+    <div>
+      <p class="panel-title">Up next</p>
+      <ul class="queue" id="queue"></ul>
+    </div>
+
+    <label class="f" for="text">Add to the briefing · example text, replace with your own
+      <textarea id="text" spellcheck="true"></textarea>
+    </label>
+    <div class="btns">
+      <button class="pill ghost" id="add" type="button">Add to queue</button>
+      <button class="pill ghost" id="sim" type="button">Simulate dashboard update</button>
+    </div>
+
+    <div class="opts">
+      <label class="f" for="voice">Voice <select id="voice"></select></label>
+      <label class="f" for="rate">Speed <input id="rate" type="range" min="0.7" max="1.4" step="0.05" value="1"></label>
+    </div>
+    <div class="checks">
+      <label><input id="auto" type="checkbox" checked> Read new items automatically</label>
+      <label><input id="mute" type="checkbox"> Silent lip-sync only</label>
+    </div>
+    <p class="note" id="note"></p>
+
+    <details>
+      <summary>Connect your dashboard</summary>
+      <label class="f" for="feedurl" style="margin-top:10px">Feed URL · JSON with items, checked every minute
+        <input id="feedurl" type="url" placeholder="https://your-dashboard.example/briefing.json">
+      </label>
+      <div class="btns" style="margin-top:8px"><button class="pill ghost" id="connect" type="button">Connect</button></div>
+      <p class="note" style="margin-top:10px">Or push items from the dashboard page that hosts this one:</p>
+      <pre id="embed">// Dashboard side
+frame.contentWindow.postMessage({
+  type: 'scarlet:briefing',
+  items: [{ id: 'sales-0900', text: 'Sales are up four percent today.', priority: 'normal' }]
+}, 'https://where-scarlet-is-hosted.example');
+
+// Optional, for the most exact lips: your own audio plus Rhubarb mouth cues
+// { id, text, audioUrl: '/briefing.wav', visemes: rhubarbJson }</pre>
+      <div class="btns" style="margin-top:8px"><button class="pill ghost" id="copycode" type="button">Copy</button></div>
+    </details>
+  </section>
+</main>
+
+<script src="src/lipsync.js"></script>
+<script src="src/avatar.js"></script>
+<script src="src/speech.js"></script>
+<script src="src/feed.js"></script>
+<script src="src/app.js"></script>
