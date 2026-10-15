@@ -12,7 +12,7 @@
     return '#' + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
   }
 
-  var DEFAULTS = { skin: '#f1cdb1', hair: '#b59a69', eyes: '#8197a8', armor: '#8e1f2a', trim: '#d3a94d' };
+  var DEFAULTS = { skin: '#f1cdb1', hair: '#c78f5c', eyes: '#8197a8', armor: '#8e1f2a', trim: '#d3a94d' };
 
   S.Avatar = function (svg, options) {
     var o = Object.assign({}, DEFAULTS, options || {});
@@ -37,7 +37,7 @@
         '<path d="M' + (cx - 18) + ',186 Q' + cx + ',170 ' + (cx + 18) + ',186" stroke="' + skinS + '" stroke-width="1.6" fill="none" opacity=".55" stroke-linecap="round"/>';
     }
 
-    var lock = '<path fill="' + hair + '" d="M124,176 C106,232 120,300 102,352 C94,392 112,422 104,462 C130,456 148,424 144,380 C140,334 152,282 140,236 C138,210 134,190 124,176 Z"/>' +
+    var lock = '<path fill="' + hair + '" d="M124,176 C106,232 120,300 102,352 C94,400 112,448 100,510 C132,500 150,448 144,380 C140,334 152,282 140,236 C138,210 134,190 124,176 Z"/>' +
       '<path d="M118,230 C112,290 124,340 110,400" stroke="' + hairD + '" stroke-width="3" fill="none" opacity=".7" stroke-linecap="round"/>' +
       '<path d="M130,250 C126,300 134,340 126,390" stroke="' + hairL + '" stroke-width="3" fill="none" opacity=".6" stroke-linecap="round"/>' +
       '<path d="M112,300 C108,340 118,380 108,430" stroke="' + hairL + '" stroke-width="1.6" fill="none" opacity=".5" stroke-linecap="round"/>';
@@ -62,7 +62,7 @@
       '<g transform="translate(0,40)">' + gears +
       '<circle cx="90" cy="250" r="2.4" fill="#5fe0d4"/><circle cx="318" cy="210" r="2" fill="#e3bd62"/><circle cx="60" cy="150" r="1.8" fill="#e3bd62"/><circle cx="345" cy="290" r="2.4" fill="#5fe0d4"/>' +
       /* hair behind the head */
-      '<g class="head-a"><path fill="' + hairD + '" d="M112,200 C94,90 150,60 200,60 C255,60 306,90 288,200 C302,260 292,300 316,356 C326,396 300,426 312,470 L88,470 C100,426 74,396 84,356 C108,300 98,260 112,200 Z"/></g>' +
+      '<g class="head-a"><path fill="' + hairD + '" d="M112,200 C94,90 150,60 200,60 C255,60 306,90 288,200 C302,260 292,300 316,356 C326,404 300,456 316,520 L84,520 C100,456 74,404 84,356 C108,300 98,260 112,200 Z"/></g>' +
       /* neck */
       '<rect x="177" y="250" width="46" height="120" rx="12" fill="' + skin + '"/><ellipse cx="200" cy="292" rx="34" ry="18" fill="' + skinS + '" opacity=".28"/>' +
       /* armor */
@@ -78,8 +78,8 @@
       /* head */
       '<g class="head-b">' +
       '<ellipse cx="124" cy="192" rx="12" ry="19" fill="' + skin + '"/><ellipse cx="276" cy="192" rx="12" ry="19" fill="' + skin + '"/>' +
-      '<path d="M124,180 C124,115 160,90 200,90 C240,90 276,115 276,180 C276,235 244,284 200,284 C156,284 124,235 124,180 Z" fill="url(#' + id + 'sk)"/>' +
-      '<path d="M130,222 C142,262 170,282 200,284 C230,282 258,262 270,222 C262,258 236,276 200,277 C164,276 138,258 130,222 Z" fill="' + skinS + '" opacity=".22"/>' +
+      '<path d="M124,180 C124,115 160,90 200,90 C240,90 276,115 276,180 C276,246 246,287 200,287 C154,287 124,246 124,180 Z" fill="url(#' + id + 'sk)"/>' +
+      '<path d="M130,224 C140,266 168,286 200,287 C232,286 260,266 270,224 C262,262 236,280 200,281 C164,280 138,262 130,224 Z" fill="' + skinS + '" opacity=".22"/>' +
       '<ellipse cx="156" cy="224" rx="17" ry="10" fill="#ff8a8a" opacity=".2"/><ellipse cx="244" cy="224" rx="17" ry="10" fill="#ff8a8a" opacity=".2"/>' +
       '<g class="brows"><path d="M150,167 Q172,154 192,163" stroke="' + hairD + '" stroke-width="5" stroke-linecap="round" fill="none"/>' +
       '<path d="M208,163 Q228,154 250,167" stroke="' + hairD + '" stroke-width="5" stroke-linecap="round" fill="none"/></g>' +
